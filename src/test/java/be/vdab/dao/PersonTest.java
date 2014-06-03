@@ -43,7 +43,7 @@ public class PersonTest {
 	
 	
 	@Test
-	public void testInClause() {
+	public void testInClause() { // this test works
 		Set<Long> ids=new HashSet<>();
 		ids.add(1L);
 		ids.add(2L);
@@ -52,13 +52,13 @@ public class PersonTest {
 		query.getResultList();		
 	}
 	@Test
-	public void testEntityGraph() {
+	public void testEntityGraph() { // this test works
 		TypedQuery<Person> query=entityManager.createQuery("select p from Person p", Person.class);
 		query.setHint("javax.persistence.loadgraph", entityManager.createEntityGraph("withBoss"));
 		query.getResultList();		
 	}
 	@Test
-	public void testEntityGraphAndInClause() {
+	public void testEntityGraphAndInClause() { // this test fails
 		Set<Long> ids=new HashSet<>();
 		ids.add(1L);
 		ids.add(2L);
